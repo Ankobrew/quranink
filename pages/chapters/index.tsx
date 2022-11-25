@@ -1,20 +1,11 @@
 import Header from "../../components/header";
 import { useQuery } from "@apollo/client";
-import { graphql } from "../../src/gql";
+import { fetchChapter } from "../../graphql";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const ChapterQueryDocument = graphql(/* GraphQL */ `
-  query Chapters {
-    chapters {
-      id
-      name
-    }
-  }
-`);
-
 export default function chapters() {
-  const { data } = useQuery(ChapterQueryDocument);
+  const { data } = useQuery(fetchChapter);
   const router = useRouter();
 
   return (
@@ -34,7 +25,7 @@ export default function chapters() {
                 {chap!.name}
               </p>
 
-              <Link href={`/cover/${chap!.id}`}>
+              <Link href={`chapters/cover/${chap!.id}`}>
                 <p className="text-center text-xs text-gray-500  hover:text-indigo-700 ">
                   Cover Link
                 </p>

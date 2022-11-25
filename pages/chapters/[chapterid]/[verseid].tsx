@@ -1,20 +1,13 @@
 import { useQuery } from "@apollo/client";
 import router from "next/router";
 import internal from "stream";
-import { graphql } from "../../../src/gql";
+import { fetchVerse } from "../../../graphql";
 
-const VerseWithVariablesQueryDocument = graphql(/* GraphQL */ `
-  query GetOneVerse($chapterId: Int!, $ayah: Int!) {
-    getOneVerse(chapterId: $chapterId, ayah: $ayah) {
-      content
-    }
-  }
-`);
 export default function Verse() {
   const chapterId = router.query.chapterid as string;
   const verseId = router.query.verseid as string;
 
-  const { data } = useQuery(VerseWithVariablesQueryDocument, {
+  const { data } = useQuery(fetchVerse, {
     variables: { chapterId: parseInt(chapterId), ayah: parseInt(verseId) },
   });
 

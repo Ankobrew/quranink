@@ -1,24 +1,12 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { graphql } from "../../src/gql";
+import { fetchOneChapter } from "../../graphql";
 import Header from "../../components/header";
-
-const ChapterOneQueryDocument = graphql(`
-  query GetOneChapter($chapterId: Int!) {
-    getOneChapter(chapterId: $chapterId) {
-      name
-      verses {
-        ayah
-        content
-      }
-    }
-  }
-`);
 
 export default function verseList() {
   const router = useRouter();
   const chapterId = router.query.chapterid as string;
-  const { data } = useQuery(ChapterOneQueryDocument, {
+  const { data } = useQuery(fetchOneChapter, {
     variables: {
       chapterId: parseInt(chapterId),
     },
