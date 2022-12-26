@@ -1,3 +1,4 @@
+import router from "next/router";
 import Header from "../components/header";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <button
           type="button"
           className="inline-flex items-center rounded border border-transparent bg-indigo-600 px-40 py-2 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 m-8"
+          onClick={() => router.push(`/createvideo`)}
         >
           Create A New Video
         </button>

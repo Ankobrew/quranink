@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
-import router from "next/router";
-import internal from "stream";
-import { fetchVerse } from "../../../graphql";
+import router, { useRouter } from "next/router";
+import { fetchVerse } from "../../../graphql/";
 
 export default function Verse() {
+  const router = useRouter();
   const chapterId = router.query.chapterid as string;
   const verseId = router.query.verseid as string;
 

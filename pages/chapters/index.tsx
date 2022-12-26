@@ -15,6 +15,9 @@ export default function chapters() {
         role="list"
         className="divide-y divide-gray-200 flex items-center flex-col mt-24"
       >
+        <h1 onClick={() => router.push(`/chapters/outro`)} className="mb-5">
+          Outro
+        </h1>
         {data?.chapters.map((chap) => (
           <li key={chap!.id} className="flex py-4">
             <div>
