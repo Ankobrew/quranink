@@ -13,11 +13,16 @@ export default function Verse() {
 
   if (data) {
     return (
-      <div>
-        {data.getOneVerse.map((v) => (
-          <h1>{v?.content}</h1>
-        ))}
-      </div>
+      <>
+        <div className="flex flex-col justify-center items-center w-screen h-screen text-center text-white ">
+          {data.getOneVerse.map((v) => (
+            <h1>"{v?.content}"</h1>
+          ))}
+          <h1 className="m-3" style={{ color: "#F38D1C" }}>
+            [Qur'an({chapterId}:{verseId})]
+          </h1>
+        </div>
+      </>
     );
   }
 }
