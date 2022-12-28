@@ -15,6 +15,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   if (route === "/chapters/[chapterid]/[verseid]") {
     backgroundColor = "bg-blue-600";
+  } else if (route === "/chapters/cover/[chapterid]") {
+    backgroundColor = "bg-blue-200";
   }
 
   return (

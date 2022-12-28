@@ -18,7 +18,7 @@ export default function Verse() {
           {data.getOneVerse.map((v) => (
             <h1>"{v?.content}"</h1>
           ))}
-          <h1 className="m-3" style={{ color: "#F38D1C" }}>
+          <h1 className="m-3 text-amber-500">
             [Qur'an({chapterId}:{verseId})]
           </h1>
         </div>
